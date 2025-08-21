@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Mail;
 use App\Livewire\Settings\Appearance;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Livewire\Config\Email;
+use App\Livewire\SendEmail;
 
 Route::get('/', function () {
     return view('welcome');
@@ -34,6 +36,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('posts/{mode}/{id}', PostForm::class)->name('posts.detail');
 
     Route::post('livewire/upload-image', [PostController::class, 'uploadImage'])->name('livewire.upload-image');
+
+    Route::get('email-config', Email::class)->name('config.email');
+    Route::get('send-email', SendEmail::class)->name('send.email');
+
 });
 
 require __DIR__ . '/auth.php';

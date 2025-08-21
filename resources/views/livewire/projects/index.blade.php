@@ -43,9 +43,6 @@
         <span x-text="message"></span>
     </div>
 
-
-    
-
     {{-- Pagination --}}
     <div class="mt-4 hidden">
         {{ $projects->links() }}
